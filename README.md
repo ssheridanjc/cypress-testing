@@ -14,11 +14,20 @@ Once you are happy with your work, commit your changes, push your new branch and
 I am using Vue CLI 3 to bootstrap a generic Vue app. For an API we are using [json-server](https://github.com/typicode/json-server).
 
 ## Pre-Installation
-To run cypress on my machine, a Macbook Pro with an M1 Max chip, I needed to install python 2.7 which I did with `homebrew`, I used the following commands, [more info here](https://github.com/TryGhost/node-sqlite3/issues/1552)
+Please note all systems are different, these instructions are for a 2021 Macbook Pro with an M1 chipset, most systems will be much more straight forward! The goal is to get Cypress running on your machine.
+
+To run Cypress on my machine, I needed to install python 2.7 which I did with `homebrew`, I used the following commands, [more info here](https://github.com/TryGhost/node-sqlite3/issues/1552)
+
 `brew install pyenv`
+
 `pyenv install 2.7.18`
+
 `pyenv global 2.7.18`
-`export PATH="${HOME}/.pyenv/shims:${PATH}"` (in my .bash_profile)
+
+`export PATH="${HOME}/.pyenv/shims:${PATH}"` (I put it in .bash_profile but .zsh_profile, your rc file, or just current terminal window should work fine)
+
+`npm config set python python2.7` to tell npm to python 2
+
 You should be able to run `python --version` in your terminal and see `2.7.18` indicated and `which python` should point to your `pyenv` install path
 
 I am also running on node version `v14.20.1` which I installed using [NVM](https://github.com/nvm-sh/nvm)
