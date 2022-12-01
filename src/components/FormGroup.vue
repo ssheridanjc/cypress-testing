@@ -17,6 +17,7 @@
       />
     </div>
     <div
+        data-cy="title_error"
         class="FormGroup__errors text-red mt-4"
         v-if="hasErrors"
     >
