@@ -1,3 +1,5 @@
+/// <reference types="cypress" />
+
 describe('FilterArticles', () => {
   it('filters articles', () => {
     cy.server()
@@ -12,6 +14,12 @@ describe('FilterArticles', () => {
       4. click on the element (with the text 'VueSchool')
       5. Verify you are now on the page with the route of 'article'
     */
+  
+    cy.get('[data-testid=articleSearchInput]').type('School{enter}')
+    cy.url().should('include', 'articles?q=School')
+    cy.get('[data-testid=articleListItemTitle]').should('exist').and('have.text', 'VueSchool')
+    cy.get('[data-testid=articleListItemTitle]').click()
+    cy.url().should('include', 'articles/4')
 
   })
 })
