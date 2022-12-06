@@ -7,6 +7,8 @@ describe('FilterArticles', () => {
     cy.route('GET', '/articles/*').as('fetchArticle')
     cy.visit('/')
 
+    //**NOTE: In this and the second test I am using a page object model
+
     //1. search for 'School' in the input element with id 'articleSearchInput' and press enter
     searchPage.typeSearch(articleSearch.firstSearch)
     //2. confirm you're on the correct route

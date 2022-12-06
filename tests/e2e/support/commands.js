@@ -94,3 +94,23 @@ Cypress.Commands.add('isPopupVisible', (type, text = '', close) => {
       }
     })
 })
+
+Cypress.Commands.add('postArticle', () => {
+  const body = JSON.stringify({
+    author: "Diego Toledano",
+    body: "Lorem Ipsum .... whatever",
+    image: "https://cdn-images-1.medium.com/max/2000/1*PHmNXbvOfg5AHiMWWuaRXg.jpeg",
+    rating: 3,
+    title: "Cypress at Jumpcloud"
+    });
+
+  return cy.request({
+    url: 'http://localhost:3000/articles',
+    method:'POST',
+    headers:{
+      'accept': 'application/json, text/plain, */*',
+      'content-type': 'application/json'
+    },
+    body
+  })
+})
